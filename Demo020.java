@@ -1,28 +1,25 @@
-import java.util.Scanner;
 public class Demo020 {
-    public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the number of terms for the Fibonacci series: ");
-        int terms = scanner.nextInt();
-
-        if (terms <= 0) {
-            System.out.println("Please enter a positive integer.");
+    public static String getFizzBizz(int num) {
+        if (num <= 0) {
+            return "Error";
+        } else if (num % 3 == 0 && num % 5 == 0) {
+            return "FIZZBIZZ";
+        } else if (num % 3 == 0) {
+            return "FIZZ";
+        } else if (num % 5 == 0) {
+            return "BIZZ";
         } else {
-            System.out.println("Fibonacci series up to " + terms + " terms:");
-
-            int first = 0, second = 1;
-
-            for (int i = 1; i <= terms; i++) {
-                System.out.print(first + " ");
-
-                int next = first + second;
-                first = second;
-                second = next;
-            }
+            return Integer.toString(num);
         }
+    }
 
-        scanner.close();
+    public static void main(String[] args) {
+        System.out.println(getFizzBizz(33));
+        System.out.println(getFizzBizz(5));
+        System.out.println(getFizzBizz(15));
+        System.out.println(getFizzBizz(7));
+        System.out.println(getFizzBizz(-1));
+        System.out.println(getFizzBizz(0));
     }
 }
